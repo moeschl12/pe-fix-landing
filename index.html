@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pe-lix – Moderne Websites für Handwerksbetriebe</title>
+  <meta name="description" content="pe-lix erstellt moderne, professionelle Websites speziell für Handwerksbetriebe. Mehr Kunden, bessere Google-Sichtbarkeit, einfach & schnell. Jetzt kostenlose Vorschau anfragen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "pe-lix",
+    "description": "Moderne Websites speziell für Handwerksbetriebe",
+    "url": "https://pe-lix.de",
+    "areaServed": "DE",
+    "serviceType": "Webdesign für Handwerksbetriebe"
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #1a1a2e;
+      --dark2: #12121f;
+      --gold: #C9A84C;
+      --gold-light: #e2c06a;
+      --white: #ffffff;
+      --gray: #f5f5f0;
+      --text-muted: #8a8a9a;
+      --border: rgba(201,168,76,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark2);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(18,18,31,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 8rem 2rem 6rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 50%, rgba(201,168,76,0.05) 0%, transparent 60%),
+        var(--dark2);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+      position: relative;
+    }
+
+    h1 em::after {
+      content: '';
+      position: absolute;
+      bottom: 0.05em;
+      left: 0; right: 0;
+      height: 0.06em;
+      background: var(--gold);
+      opacity: 0.3;
+      border-radius: 2px;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+      font-weight: 300;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .hero-trust {
+      margin-top: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .trust-icon { color: var(--gold); font-size: 1rem; }
+
+    /* ── SECTIONS ── */
+    section { position: relative; z-index: 1; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── PROBLEM ── */
+    .problem { background: var(--dark); }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .problem-item {
+      background: var(--dark2);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .problem-item::before {
+      content: '✗';
+      display: block;
+      font-size: 1.2rem;
+      color: #e63946;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .problem-item h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .problem-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── LÖSUNG ── */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .solution-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .solution-card:hover {
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-4px);
+      background: rgba(201,168,76,0.04);
+    }
+
+    .solution-card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      width: 48px; height: 48px;
+      background: rgba(201,168,76,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .solution-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .solution-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── DEMO ── */
+    .demo { background: var(--dark); }
+
+    .demo-frame {
+      margin-top: 3rem;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .demo-bar {
+      background: rgba(255,255,255,0.05);
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .demo-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    .demo-url {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin: 0 0.8rem;
+    }
+
+    .demo-preview {
+      background: var(--dark);
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-mockup {
+      width: 100%;
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
+      text-align: center;
+      position: relative;
+    }
+
+    .mockup-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .mockup-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .mockup-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .mockup-link {
+      width: 50px; height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+    }
+
+    .mockup-cta-nav {
+      width: 80px; height: 28px;
+      background: var(--gold);
+      border-radius: 6px;
+    }
+
+    .mockup-hero {
+      max-width: 500px;
+      margin: 0 auto 3rem;
+    }
+
+    .mockup-h1-line {
+      height: 20px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .mockup-h1-line:nth-child(2) { width: 75%; margin: 0 auto 12px; }
+    .mockup-h1-line:nth-child(3) { width: 55%; margin: 0 auto 20px; background: var(--gold); }
+
+    .mockup-sub-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .mockup-sub-line {
+      height: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      width: 80%;
+    }
+
+    .mockup-sub-line:last-child { width: 60%; }
+
+    .mockup-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .mockup-btn {
+      height: 36px;
+      border-radius: 8px;
+    }
+
+    .mockup-btn-p { width: 140px; background: var(--gold); }
+    .mockup-btn-s { width: 110px; background: rgba(255,255,255,0.1); }
+
+    .mockup-services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .mockup-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .mockup-card-icon {
+      width: 32px; height: 32px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 8px;
+    }
+
+    .mockup-card-line {
+      height: 8px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .mockup-card-line-sm {
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      width: 70%;
+    }
+
+    .demo-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .demo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .demo-link:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: var(--gold);
+    }
+
+    /* ── SOCIAL PROOF ── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+    }
+
+    .review-stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; }
+
+    .review-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .reviewer-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .reviewer-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ── RECRUITING ── */
+    .recruiting { background: var(--dark); }
+
+    .recruiting-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .recruiting-visual {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .recruiting-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .application-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .app-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .app-info { flex: 1; }
+
+    .app-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .app-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .app-status {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    .status-new { background: rgba(46,213,115,0.1); color: #2ed573; }
+    .status-read { background: rgba(201,168,76,0.1); color: var(--gold); }
+
+    /* ── ABLAUF ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.6% + 1rem);
+      right: calc(16.6% + 1rem);
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent 50%, var(--gold));
+      opacity: 0.3;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin: 0 auto 1.5rem;
+    }
+
+    .step h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        var(--dark);
+      text-align: center;
+    }
+
+    .final-cta h2 { margin-bottom: 1rem; }
+    .final-cta .section-sub { margin: 0 auto 2.5rem; }
+
+    /* ── FORMULAR ── */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option { background: var(--dark); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+    }
+
+    .contact-info h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #25d366;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 1rem 1.8rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.25s;
+      margin-bottom: 2rem;
+    }
+
+    .whatsapp-btn:hover {
+      background: #20bd5a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+    }
+
+    .contact-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .contact-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-feature::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .recruiting-inner { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+      .contact-wrapper { grid-template-columns: 1fr; }
+      .mockup-services { grid-template-columns: 1fr 1fr; }
+      .mockup-links { display: none; }
+      nav { padding: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .section-inner { padding: 4rem 1.2rem; }
+      .contact-form { padding: 1.5rem; }
+      .mockup-services { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">pe<span>-</span>lix</div>
+    <a href="#kontakt" class="nav-cta">Kostenlose Vorschau →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Websites speziell für Handwerksbetriebe
+      </div>
+      <h1>Mehr Kunden.<br /><em>Weniger Aufwand.</em><br />Ihre Website.</h1>
+      <p class="hero-sub">
+        Wir erstellen moderne, professionelle Websites für Handwerksbetriebe – 
+        die bei Google gefunden werden und Anfragen bringen.
+      </p>
+      <div class="hero-ctas">
+        <a href="#kontakt" class="btn-primary">
+          Kostenlose Vorschau anfragen →
+        </a>
+        <a href="#demo" class="btn-secondary">
+          Beispiel ansehen
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          Keine Vorkenntnisse nötig
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          Kostenlose Demo
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          Fertig in 48 Stunden
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Das Problem</div>
+        <h2>Warum Handwerker<br />online Kunden verlieren</h2>
+        <p class="section-sub">
+          Ihre Konkurrenz ist online. Ihre Kunden suchen online. 
+          Wer nicht gefunden wird, verliert.
+        </p>
+      </div>
+      <div class="problem-grid reveal">
+        <div class="problem-item">
+          <h3>Keine Website</h3>
+          <p>Über 60% der Handwerksbetriebe haben keine professionelle Online-Präsenz. Potenzielle Kunden finden Sie bei Google nicht.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Veralteter Auftritt</h3>
+          <p>Eine alte Website wirkt unprofessionell. Kunden zweifeln an der Qualität – und rufen den Konkurrenten an.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Kein Google-Ranking</h3>
+          <p>Wenn jemand „Elektriker Leipzig" sucht – wer erscheint da? Nicht Sie? Das kostet täglich neue Anfragen.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Keine Mitarbeiter</h3>
+          <p>Fachkräftemangel ist real. Wer keine Karriereseite hat, bekommt keine Bewerbungen – und bleibt unterbesetzt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LÖSUNG -->
+  <section>
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Die Lösung</div>
+        <h2>Ihre Website.<br />In 48 Stunden live.</h2>
+        <p class="section-sub">
+          pe-lix erstellt moderne Handwerker-Websites, die professionell aussehen, 
+          bei Google ranken und Anfragen generieren.
+        </p>
+      </div>
+      <div class="solution-grid">
+        <div class="solution-card reveal">
+          <div class="card-icon">⚡</div>
+          <h3>Schnell live</h3>
+          <p>Ihre Website ist in 48 Stunden fertig und live. Kein wochenlanger Prozess, keine endlosen Meetings.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="card-icon">📱</div>
+          <h3>Mobile First</h3>
+          <p>70% Ihrer Kunden surfen mobil. Ihre Website sieht auf jedem Gerät perfekt aus.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="card-icon">🔍</div>
+          <h3>Google-optimiert</h3>
+          <p>SEO ist von Anfang an eingebaut. Ihre Kunden finden Sie bei lokalen Suchanfragen.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="card-icon">💬</div>
+          <h3>Mehr Anfragen</h3>
+          <p>WhatsApp-Button, Kontaktformular, Telefon – Kunden können Sie sofort erreichen.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="card-icon">🎨</div>
+          <h3>Professionelles Design</h3>
+          <p>Modern, aufgeräumt, vertrauenswürdig. Eine Website auf die Sie stolz sein können.</p>
+        </div>
+        <div class="solution-card reveal">
+          <div class="card-icon">🛠️</div>
+          <h3>Kein Stress</h3>
+          <p>Sie liefern die Infos, wir machen den Rest. Kein technisches Wissen nötig.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section class="demo" id="demo">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Beispiel</div>
+        <h2>So sieht Ihre<br />Website aus</h2>
+        <p class="section-sub">
+          Modern, klar, professionell. Genau das, was Ihre Kunden erwarten.
+        </p>
+      </div>
+      <div class="demo-frame reveal">
+        <div class="demo-bar">
+          <div class="demo-dot" style="background:#e63946"></div>
+          <div class="demo-dot" style="background:#f4a261"></div>
+          <div class="demo-dot" style="background:#2ed573"></div>
+          <div class="demo-url">🔒 maler-mustermann-berlin.de</div>
+        </div>
+        <div class="demo-preview">
+          <div class="demo-mockup">
+            <div class="mockup-nav">
+              <div class="mockup-logo">Maler Mustermann</div>
+              <div class="mockup-links">
+                <div class="mockup-link"></div>
+                <div class="mockup-link"></div>
+                <div class="mockup-link"></div>
+              </div>
+              <div class="mockup-cta-nav"></div>
+            </div>
+            <div class="mockup-hero">
+              <div class="mockup-h1-line"></div>
+              <div class="mockup-h1-line"></div>
+              <div class="mockup-h1-line"></div>
+              <div class="mockup-sub-lines">
+                <div class="mockup-sub-line"></div>
+                <div class="mockup-sub-line"></div>
+              </div>
+              <div class="mockup-btns">
+                <div class="mockup-btn mockup-btn-p"></div>
+                <div class="mockup-btn mockup-btn-s"></div>
+              </div>
+            </div>
+            <div class="mockup-services">
+              <div class="mockup-card">
+                <div class="mockup-card-icon"></div>
+                <div class="mockup-card-line"></div>
+                <div class="mockup-card-line-sm"></div>
+              </div>
+              <div class="mockup-card">
+                <div class="mockup-card-icon"></div>
+                <div class="mockup-card-line"></div>
+                <div class="mockup-card-line-sm"></div>
+              </div>
+              <div class="mockup-card">
+                <div class="mockup-card-icon"></div>
+                <div class="mockup-card-line"></div>
+                <div class="mockup-card-line-sm"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-links reveal">
+        <a href="https://kunde-test-maler-berlin.vercel.app" target="_blank" class="demo-link">
+          🎨 Demo: Maler Berlin →
+        </a>
+        <a href="https://kunde-test-elektriker-hamburg.vercel.app" target="_blank" class="demo-link">
+          ⚡ Demo: Elektriker Hamburg →
+        </a>
+        <a href="https://demo-bauunternehmen-leipzig.vercel.app" target="_blank" class="demo-link">
+          🏗️ Demo: Bauunternehmen Leipzig →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section>
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Stimmen</div>
+        <h2>Was Handwerker sagen</h2>
+        <p class="section-sub">
+          Echte Ergebnisse für Betriebe wie Ihren.
+        </p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">„Seit der neuen Website kommen deutlich mehr Anfragen. Der Aufwand war minimal – ich musste nur ein paar Fragen beantworten."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">TM</div>
+            <div>
+              <div class="reviewer-name">Thomas M.</div>
+              <div class="reviewer-role">Malerbetrieb, Berlin</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">„Ich dachte, eine Website ist kompliziert und teuer. War es nicht. In 2 Tagen war alles fertig und sieht top aus."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">KS</div>
+            <div>
+              <div class="reviewer-name">Klaus S.</div>
+              <div class="reviewer-role">Elektriker, Hamburg</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">„Über die Karriereseite haben wir binnen 3 Wochen zwei neue Gesellen gefunden. Das hat uns wirklich weitergeholfen."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">AR</div>
+            <div>
+              <div class="reviewer-name">Andreas R.</div>
+              <div class="reviewer-role">Dachdecker, München</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECRUITING -->
+  <section class="recruiting">
+    <div class="section-inner">
+      <div class="recruiting-inner">
+        <div class="reveal">
+          <div class="section-label">Optional</div>
+          <h2>Neue Mitarbeiter<br />über Ihre Website</h2>
+          <p style="color:var(--text-muted);line-height:1.6;margin-bottom:1.5rem;font-weight:300;">
+            Fachkräftemangel ist das größte Problem im Handwerk. 
+            Mit einer integrierten Karriereseite und einem Bewerbungsformular 
+            erreichen Sie Bewerber direkt – ohne teure Jobportale.
+          </p>
+          <div class="contact-features">
+            <div class="contact-feature">Karriereseite direkt auf Ihrer Website</div>
+            <div class="contact-feature">Bewerbungen landen direkt in Ihrem Postfach</div>
+            <div class="contact-feature">Automatische Bestätigung an Bewerber</div>
+            <div class="contact-feature">Kein Jobportal, keine extra Kosten</div>
+          </div>
+        </div>
+        <div class="recruiting-visual reveal">
+          <div class="recruiting-badge">Neue Bewerbungen</div>
+          <div class="application-card">
+            <div class="app-avatar">MK</div>
+            <div class="app-info">
+              <div class="app-name">Markus K.</div>
+              <div class="app-role">Geselle Elektrotechnik · gerade eben</div>
+            </div>
+            <div class="app-status status-new">Neu</div>
+          </div>
+          <div class="application-card">
+            <div class="app-avatar">SL</div>
+            <div class="app-info">
+              <div class="app-name">Sarah L.</div>
+              <div class="app-role">Auszubildende · vor 2 Std.</div>
+            </div>
+            <div class="app-status status-read">Gelesen</div>
+          </div>
+          <div class="application-card">
+            <div class="app-avatar">JP</div>
+            <div class="app-info">
+              <div class="app-name">Jan P.</div>
+              <div class="app-role">Meister Sanitär · gestern</div>
+            </div>
+            <div class="app-status status-read">Gelesen</div>
+          </div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem;text-align:center;">
+            Alle Bewerbungen landen direkt in Ihrem Postfach
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABLAUF -->
+  <section>
+    <div class="section-inner" style="text-align:center;">
+      <div class="reveal">
+        <div class="section-label">So einfach geht's</div>
+        <h2>In 3 Schritten<br />zur fertigen Website</h2>
+        <p class="section-sub" style="margin:0 auto 1rem;">
+          Kein Stress, kein Aufwand. Sie liefern die Infos – wir machen den Rest.
+        </p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <h3>Vorschau anfragen</h3>
+          <p>Sie schicken uns kurz Ihre Firmendaten – per WhatsApp oder Formular. Das dauert 2 Minuten.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <h3>Demo erhalten</h3>
+          <p>Innerhalb von 24 Stunden erhalten Sie einen Link zu Ihrer persönlichen Demo-Website.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <h3>Live gehen</h3>
+          <p>Gefällt Ihnen die Demo? Dann schalten wir Ihre Website live – fertig.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINALER CTA -->
+  <section class="final-cta" id="kontakt">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Jetzt starten</div>
+        <h2>Kostenlose Website-Vorschau<br />für Ihren Betrieb</h2>
+        <p class="section-sub">
+          Unverbindlich. Kostenlos. Fertig in 24 Stunden.
+        </p>
+      </div>
+      <div class="contact-wrapper">
+        <div class="contact-form reveal">
+          <h3 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;">Vorschau anfragen</h3>
+          <div class="form-group">
+            <label>Ihr Name *</label>
+            <input type="text" placeholder="Max Mustermann" />
+          </div>
+          <div class="form-group">
+            <label>Firmenname *</label>
+            <input type="text" placeholder="Mustermann GmbH" />
+          </div>
+          <div class="form-group">
+            <label>Branche *</label>
+            <select>
+              <option value="">Branche wählen...</option>
+              <option>Maler</option>
+              <option>Elektriker</option>
+              <option>Sanitär / Klempner</option>
+              <option>Dachdecker</option>
+              <option>Schreiner / Tischler</option>
+              <option>Fliesenleger</option>
+              <option>Trockenbau</option>
+              <option>Bauunternehmen</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Telefon / WhatsApp *</label>
+            <input type="tel" placeholder="+49 123 456789" />
+          </div>
+          <div class="form-group">
+            <label>Stadt *</label>
+            <input type="text" placeholder="Berlin" />
+          </div>
+          <div class="form-group">
+            <label>Nachricht (optional)</label>
+            <textarea placeholder="Was ist Ihnen bei der Website besonders wichtig?"></textarea>
+          </div>
+          <button class="form-submit">Kostenlose Vorschau anfragen →</button>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem;text-align:center;">
+            Keine Verpflichtung · 100% kostenlos · Antwort in 24h
+          </p>
+        </div>
+        <div class="contact-info reveal">
+          <h3>Oder direkt per WhatsApp</h3>
+          <p>
+            Schreiben Sie uns einfach kurz – wir antworten schnell und erstellen 
+            Ihre persönliche Demo-Website innerhalb von 24 Stunden.
+          </p>
+          <a href="https://wa.me/49XXXXXXXXXX?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20f%C3%BCr%20meinen%20Betrieb." 
+             class="whatsapp-btn" target="_blank">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Per WhatsApp anfragen
+          </a>
+          <div class="contact-features">
+            <div class="contact-feature">Kostenlose Demo ohne Verpflichtung</div>
+            <div class="contact-feature">Fertig in 24–48 Stunden</div>
+            <div class="contact-feature">Persönliche Beratung inklusive</div>
+            <div class="contact-feature">Kein technisches Wissen nötig</div>
+            <div class="contact-feature">Faire, transparente Preise</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 pe-lix · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form submit
+    document.querySelector('.form-submit').addEventListener('click', function() {
+      const name = document.querySelector('input[placeholder="Max Mustermann"]').value;
+      const firma = document.querySelector('input[placeholder="Mustermann GmbH"]').value;
+      const branche = document.querySelector('select').value;
+      const telefon = document.querySelector('input[type="tel"]').value;
+      const stadt = document.querySelector('input[placeholder="Berlin"]').value;
+
+      if (!name || !firma || !branche || !telefon || !stadt) {
+        alert('Bitte füllen Sie alle Pflichtfelder aus.');
+        return;
+      }
+
+      const msg = `Hallo! Ich interessiere mich für eine Website.%0A%0AName: ${encodeURIComponent(name)}%0AFirma: ${encodeURIComponent(firma)}%0ABranche: ${encodeURIComponent(branche)}%0ATelefon: ${encodeURIComponent(telefon)}%0AStadt: ${encodeURIComponent(stadt)}`;
+      window.open(`https://wa.me/49XXXXXXXXXX?text=${msg}`, '_blank');
+    });
+  </script>
+</body>
+</html>
