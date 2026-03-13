@@ -975,7 +975,7 @@
   <!-- NAV -->
   <nav>
     <div class="logo">pe<span>-</span>lix</div>
-    <a href="#kontakt" class="nav-cta">Kostenlose Vorschau →</a>
+    <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button><a href="#kontakt" class="nav-cta">Kostenlose Vorschau →</a>
   </nav>
 
   <!-- HERO -->
@@ -1492,3 +1492,54 @@ h1 { font-weight: 800 !important; }
   .logo { font-size: 1.6rem !important; }
 }
 </style>
+<style>
+.burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px; left: 0; right: 0;
+  background: rgba(18,18,31,0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  z-index: 99;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.mobile-menu a:last-child { border-bottom: none; color: var(--gold); font-weight: 600; }
+.mobile-menu a:hover { color: var(--gold); }
+@media (max-width: 768px) {
+  .nav-cta { display: none !important; }
+  .burger { display: flex !important; }
+}
+</style>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="toggleMenu()">Start</a>
+  <a href="#demo" onclick="toggleMenu()">Beispiel</a>
+  <a href="#kontakt" onclick="toggleMenu()">Leistungen</a>
+  <a href="#kontakt" onclick="toggleMenu()">Kostenlose Vorschau →</a>
+</div>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const burger = document.getElementById('burger');
+  menu.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+</script>
