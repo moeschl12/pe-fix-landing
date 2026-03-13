@@ -1000,6 +1000,7 @@
           Beispiel ansehen
         </a>
       </div>
+      <a href="https://wa.me/491629686624?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website." target="_blank" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;color:#25d366;font-size:0.9rem;font-weight:500;text-decoration:none;margin-top:0.8rem;">&#9654; Oder direkt per WhatsApp schreiben</a>
       <div class="hero-trust">
         <div class="trust-item">
           <span class="trust-icon">✓</span>
@@ -1017,7 +1018,29 @@
     </div>
   </section>
 
-  <!-- PROBLEM -->
+  
+
+
+  
+<section style="background:#16162a;">
+  <div class="section-inner" style="max-width:900px;">
+    <div class="reveal" id="ueber-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;">
+      <div style="text-align:center;">
+        <div style="width:120px;height:120px;border-radius:50%;background:rgba(201,168,76,0.1);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto;font-family:'DM Sans',sans-serif;font-size:2.5rem;font-weight:800;color:var(--gold);">FO</div>
+        <div style="margin-top:1rem;font-weight:700;font-size:1rem;">Felix Obendorf</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);">Gründer, pe-lix</div>
+      </div>
+      <div>
+        <div class="section-label">Über pe-lix</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1rem;">Websites die<br/>wirklich funktionieren</h2>
+        <p style="color:var(--text-muted);line-height:1.7;font-weight:300;">Ich bin Felix – und ich habe pe-lix gegründet, weil zu viele gute Handwerksbetriebe online unsichtbar sind. Nicht weil sie schlechte Arbeit leisten, sondern weil niemand ihnen eine vernünftige Website gebaut hat.</p>
+        <p style="color:var(--text-muted);line-height:1.7;font-weight:300;margin-top:1rem;">pe-lix macht das anders: modern, schnell, fair – und ohne technischen Stress für Sie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
   <section class="problem">
     <div class="section-inner">
       <div class="reveal">
@@ -1414,6 +1437,90 @@
       window.open(`https://wa.me/491629686624?text=${msg}`, '_blank');
     });
   </script>
+
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(18,18,31,0.97);backdrop-filter:blur(20px);border-top:1px solid rgba(201,168,76,0.2);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+  <p style="font-size:0.85rem;color:#a0a0b8;margin:0;flex:1;min-width:200px;">Diese Website verwendet Cookies. <a href="#datenschutz" style="color:var(--gold);">Datenschutz</a></p>
+  <div style="display:flex;gap:0.8rem;flex-shrink:0;">
+    <button onclick="acceptCookies()" style="background:var(--gold);color:var(--dark);border:none;padding:0.6rem 1.4rem;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;">Akzeptieren</button>
+    <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(255,255,255,0.1);padding:0.6rem 1.4rem;border-radius:6px;font-size:0.85rem;cursor:pointer;">Ablehnen</button>
+  </div>
+</div>
+
+<section id="impressum" style="display:none;background:var(--dark);">
+  <div class="section-inner" style="max-width:700px;">
+    <h2>Impressum</h2>
+    <div style="color:var(--text-muted);line-height:1.8;margin-top:2rem;">
+      <p><strong style="color:var(--white);">Angaben gemäß § 5 TMG</strong></p><br/>
+      <p>Felix Obendorf<br/>Prager Straße 180<br/>04317 Leipzig</p><br/>
+      <p><strong style="color:var(--white);">Kontakt</strong></p>
+      <p>E-Mail: hallo@pe-lix.de</p><br/>
+      <p><strong style="color:var(--white);">Verantwortlich für den Inhalt</strong></p>
+      <p>Felix Obendorf, Prager Straße 180, 04317 Leipzig</p><br/>
+      <p><strong style="color:var(--white);">Haftungsausschluss</strong></p>
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt.</p><br/>
+      <button onclick="document.getElementById('impressum').style.display='none';window.scrollTo(0,0);" style="background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;">← Zurück</button>
+    </div>
+  </div>
+</section>
+
+<section id="datenschutz" style="display:none;background:var(--dark);">
+  <div class="section-inner" style="max-width:700px;">
+    <h2>Datenschutzerklärung</h2>
+    <div style="color:var(--text-muted);line-height:1.8;margin-top:2rem;">
+      <p><strong style="color:var(--white);">1. Verantwortlicher</strong></p>
+      <p>Felix Obendorf, Prager Straße 180, 04317 Leipzig<br/>E-Mail: hallo@pe-lix.de</p><br/>
+      <p><strong style="color:var(--white);">2. Erhobene Daten</strong></p>
+      <p>Name, Firmenname, Telefon, Stadt – ausschließlich zur Bearbeitung Ihrer Anfrage.</p><br/>
+      <p><strong style="color:var(--white);">3. Weitergabe</strong></p>
+      <p>Keine Weitergabe an Dritte. Übertragung via SSL/TLS verschlüsselt.</p><br/>
+      <p><strong style="color:var(--white);">4. Cookies</strong></p>
+      <p>Technisch notwendige Cookies. Widerspruch jederzeit möglich.</p><br/>
+      <p><strong style="color:var(--white);">5. Ihre Rechte</strong></p>
+      <p>Auskunft, Berichtigung, Löschung: hallo@pe-lix.de</p><br/>
+      <p><strong style="color:var(--white);">6. Hosting</strong></p>
+      <p>Vercel Inc., 340 Pine Street, Suite 401, San Francisco, CA 94104, USA.</p><br/>
+      <button onclick="document.getElementById('datenschutz').style.display='none';window.scrollTo(0,0);" style="background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;">← Zurück</button>
+    </div>
+  </div>
+</section>
+
+<style>
+@media (max-width:600px) { #ueber-grid { grid-template-columns:1fr !important; text-align:center; } }
+</style>
+
+<script>
+function initCookies() {
+  if (!localStorage.getItem('cookieConsent')) {
+    document.getElementById('cookieBanner').style.display = 'flex';
+  }
+}
+function acceptCookies() {
+  localStorage.setItem('cookieConsent','accepted');
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+function declineCookies() {
+  localStorage.setItem('cookieConsent','declined');
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+document.querySelectorAll('a[href="#impressum"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('impressum').style.display = 'block';
+    document.getElementById('datenschutz').style.display = 'none';
+    document.getElementById('impressum').scrollIntoView({behavior:'smooth'});
+  });
+});
+document.querySelectorAll('a[href="#datenschutz"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('datenschutz').style.display = 'block';
+    document.getElementById('impressum').style.display = 'none';
+    document.getElementById('datenschutz').scrollIntoView({behavior:'smooth'});
+  });
+});
+window.addEventListener('load', initCookies);
+</script>
+
 </body>
 </html>
 <style>
