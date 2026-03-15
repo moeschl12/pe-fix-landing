@@ -13,9 +13,6 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="pe-lix – Moderne Websites für Handwerksbetriebe" />
   <meta name="twitter:description" content="Websites für Handwerksbetriebe – schnell, modern, fair." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1533,7 +1530,7 @@ h1 { font-weight: 800 !important; }
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 pe-lix · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+    <p>© 2026 pe-lix · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
   </footer>
 
   <script>
@@ -1581,9 +1578,11 @@ h1 { font-weight: 800 !important; }
       <p><strong style="color:var(--white);">Angaben gemäß § 5 TMG</strong></p><br/>
       <p>Felix Obendorf<br/>Prager Straße 180<br/>04317 Leipzig</p><br/>
       <p><strong style="color:var(--white);">Kontakt</strong></p>
-      <p>E-Mail: hallo@pe-lix.de</p><br/>
+      <p>E-Mail: hallo@pe-lix.de</p><p>Telefon: +49 162 9686624</p><br/>
       <p><strong style="color:var(--white);">Verantwortlich für den Inhalt</strong></p>
       <p>Felix Obendorf, Prager Straße 180, 04317 Leipzig</p><br/>
+      <p><strong style="color:var(--white);">Steuerliche Angaben</strong></p>
+      <p>Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</p><br/>
       <p><strong style="color:var(--white);">Haftungsausschluss</strong></p>
       <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt.</p><br/>
       <button onclick="document.getElementById('impressum').style.display='none';window.scrollTo(0,0);" style="background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;">← Zurück</button>
@@ -1599,12 +1598,18 @@ h1 { font-weight: 800 !important; }
       <p>Felix Obendorf, Prager Straße 180, 04317 Leipzig<br/>E-Mail: hallo@pe-lix.de</p><br/>
       <p><strong style="color:var(--white);">2. Erhobene Daten</strong></p>
       <p>Name, Firmenname, Telefon, Stadt – ausschließlich zur Bearbeitung Ihrer Anfrage.</p><br/>
+      <p><strong style="color:var(--white);">3. Hosting</strong></p>
+      <p>Vercel Inc., 340 Pine Street, Suite 401, San Francisco, CA 94104, USA. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p><br/>
+      <p><strong style="color:var(--white);">4. WhatsApp</strong></p>
+      <p>Bei Klick auf WhatsApp-Links wird Ihre IP-Adresse an Meta Platforms Ireland Ltd. übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</p><br/>
+      <p><strong style="color:var(--white);">5. Kontaktformular</strong></p>
+      <p>Formulardaten werden über WhatsApp weitergeleitet und nicht dauerhaft gespeichert.</p><br/>
       <p><strong style="color:var(--white);">3. Weitergabe</strong></p>
       <p>Keine Weitergabe an Dritte. Übertragung via SSL/TLS verschlüsselt.</p><br/>
       <p><strong style="color:var(--white);">4. Cookies</strong></p>
       <p>Technisch notwendige Cookies. Widerspruch jederzeit möglich.</p><br/>
       <p><strong style="color:var(--white);">5. Ihre Rechte</strong></p>
-      <p>Auskunft, Berichtigung, Löschung: hallo@pe-lix.de</p><br/>
+      <p>Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Widerspruch (Art. 21): hallo@pe-lix.de</p><br/>
       <p><strong style="color:var(--white);">6. Hosting</strong></p>
       <p>Vercel Inc., 340 Pine Street, Suite 401, San Francisco, CA 94104, USA.</p><br/>
       <button onclick="document.getElementById('datenschutz').style.display='none';window.scrollTo(0,0);" style="background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;">← Zurück</button>
@@ -1616,16 +1621,16 @@ h1 { font-weight: 800 !important; }
 
 <script>
 function initCookies() {
-  if (!localStorage.getItem('cookieConsent')) {
+  if (!document.cookie.includes('pe_consent=')) {
     document.getElementById('cookieBanner').style.display = 'flex';
   }
 }
 function acceptCookies() {
-  localStorage.setItem('cookieConsent','accepted');
+  document.cookie = 'pe_consent=accepted; max-age=31536000; path=/; SameSite=Lax';
   document.getElementById('cookieBanner').style.display = 'none';
 }
 function declineCookies() {
-  localStorage.setItem('cookieConsent','declined');
+  document.cookie = 'pe_consent=declined; max-age=31536000; path=/; SameSite=Lax';
   document.getElementById('cookieBanner').style.display = 'none';
 }
 document.querySelectorAll('a[href="#impressum"]').forEach(a => {
