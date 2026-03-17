@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pe-lix – Moderne Websites für Handwerksbetriebe</title>
   <meta name="description" content="pe-lix erstellt moderne, professionelle Websites speziell für Handwerksbetriebe. Mehr Kunden, bessere Google-Sichtbarkeit, einfach & schnell. Jetzt kostenlose Vorschau anfragen." />
-    <meta property="og:title" content="pe-lix – Moderne Websites für Handwerksbetriebe" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pe-lix.de" />
+  <meta property="og:title" content="pe-lix – Moderne Websites für Handwerksbetriebe" />
   <meta property="og:description" content="Moderne, professionelle Websites speziell für Handwerksbetriebe. Mehr Kunden, bessere Google-Sichtbarkeit. Jetzt kostenlose Vorschau anfragen." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pe-lix.de" />
@@ -20,6 +22,15 @@
     "name": "pe-lix",
     "description": "Moderne Websites speziell für Handwerksbetriebe",
     "url": "https://pe-lix.de",
+    "telephone": "+49162968624",
+    "email": "hallo@pe-lix.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Prager Straße 180",
+      "addressLocality": "Leipzig",
+      "postalCode": "04317",
+      "addressCountry": "DE"
+    },
     "areaServed": "DE",
     "serviceType": "Webdesign für Handwerksbetriebe"
   }
@@ -1100,7 +1111,7 @@ h1 { font-weight: 800 !important; }
   <!-- NAV -->
   <nav>
     <div class="logo">pe<span>-</span>lix</div>
-    <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button><a href="#kontakt" class="nav-cta">Kostenlose Vorschau →</a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button><a href="#kontakt" class="nav-cta">Kostenlose Vorschau →</a>
   </nav>
 
   <!-- HERO -->
@@ -1125,7 +1136,7 @@ h1 { font-weight: 800 !important; }
           Beispiel ansehen
         </a>
       </div>
-      <a href="https://wa.me/491629686624?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website." target="_blank" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;color:#25d366;font-size:0.9rem;font-weight:500;text-decoration:none;margin-top:0.8rem;">&#9654; Oder direkt per WhatsApp schreiben</a>
+      <a href="https://wa.me/491629686624?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website." target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;color:#25d366;font-size:0.9rem;font-weight:500;text-decoration:none;margin-top:0.8rem;">&#9654; Oder direkt per WhatsApp schreiben</a>
       <div class="hero-trust">
         <div class="trust-item">
           <span class="trust-icon">✓</span>
@@ -1306,13 +1317,13 @@ h1 { font-weight: 800 !important; }
         </div>
       </div>
       <div class="demo-links reveal">
-        <a href="https://maler-mustermann-leipzig.vercel.app" target="_blank" class="demo-link">
+        <a href="https://maler-mustermann-leipzig.vercel.app" target="_blank" rel="noopener noreferrer" class="demo-link">
           🎨 Demo: Maler Leipzig →
         </a>
-        <a href="https://elektriker-mustermann-leipzig.vercel.app" target="_blank" class="demo-link">
+        <a href="https://elektriker-mustermann-leipzig.vercel.app" target="_blank" rel="noopener noreferrer" class="demo-link">
           ⚡ Demo: Elektriker Leipzig →
         </a>
-        <a href="https://trockenbau-mustermann-leipzig.vercel.app" target="_blank" class="demo-link">
+        <a href="https://trockenbau-mustermann-leipzig.vercel.app" target="_blank" rel="noopener noreferrer" class="demo-link">
           🔧 Demo: Trockenbau Leipzig →
         </a>
       </div>
@@ -1464,16 +1475,16 @@ h1 { font-weight: 800 !important; }
         <div class="contact-form reveal">
           <h3 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;">Vorschau anfragen</h3>
           <div class="form-group">
-            <label>Ihr Name *</label>
-            <input type="text" placeholder="Max Mustermann" />
+            <label for="f-name">Ihr Name *</label>
+            <input id="f-name" type="text" placeholder="Max Mustermann" aria-required="true" />
           </div>
           <div class="form-group">
-            <label>Firmenname *</label>
-            <input type="text" placeholder="Mustermann GmbH" />
+            <label for="f-firma">Firmenname *</label>
+            <input id="f-firma" type="text" placeholder="Mustermann GmbH" aria-required="true" />
           </div>
           <div class="form-group">
-            <label>Branche *</label>
-            <select>
+            <label for="f-branche">Branche *</label>
+            <select id="f-branche" aria-required="true">
               <option value="">Branche wählen...</option>
               <option>Maler</option>
               <option>Elektriker</option>
@@ -1487,18 +1498,18 @@ h1 { font-weight: 800 !important; }
             </select>
           </div>
           <div class="form-group">
-            <label>Telefon / WhatsApp *</label>
-            <input type="tel" placeholder="+49 123 456789" />
+            <label for="f-telefon">Telefon / WhatsApp *</label>
+            <input id="f-telefon" type="tel" placeholder="+49 123 456789" aria-required="true" />
           </div>
           <div class="form-group">
-            <label>Stadt *</label>
-            <input type="text" placeholder="Berlin" />
+            <label for="f-stadt">Stadt *</label>
+            <input id="f-stadt" type="text" placeholder="Berlin" aria-required="true" />
           </div>
           <div class="form-group">
-            <label>Nachricht (optional)</label>
-            <textarea placeholder="Was ist Ihnen bei der Website besonders wichtig?"></textarea>
+            <label for="f-nachricht">Nachricht (optional)</label>
+            <textarea id="f-nachricht" placeholder="Was ist Ihnen bei der Website besonders wichtig?"></textarea>
           </div>
-          <button class="form-submit">Kostenlose Vorschau anfragen →</button>
+          <button class="form-submit" id="formSubmit">Kostenlose Vorschau anfragen →</button>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem;text-align:center;">
             Keine Verpflichtung · 100% kostenlos · Antwort in 24h
           </p>
@@ -1509,8 +1520,8 @@ h1 { font-weight: 800 !important; }
             Schreiben Sie uns einfach kurz – wir antworten schnell und erstellen 
             Ihre persönliche Demo-Website innerhalb von 24 Stunden.
           </p>
-          <a href="https://wa.me/491629686624?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20f%C3%BCr%20meinen%20Betrieb." 
-             class="whatsapp-btn" target="_blank">
+          <a href="https://wa.me/491629686624?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20f%C3%BCr%20meinen%20Betrieb."
+             class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Per WhatsApp anfragen (öffnet WhatsApp)">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -1533,6 +1544,14 @@ h1 { font-weight: 800 !important; }
     <p>© 2026 pe-lix · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></p>
   </footer>
 
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation">
+    <a href="#">Start</a>
+    <a href="#demo">Beispiel</a>
+    <a href="#loesung">Leistungen</a>
+    <a href="#kontakt">Kostenlose Vorschau →</a>
+  </div>
+
   <script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
@@ -1546,12 +1565,12 @@ h1 { font-weight: 800 !important; }
     reveals.forEach(el => observer.observe(el));
 
     // Form submit
-    document.querySelector('.form-submit').addEventListener('click', function() {
-      const name = document.querySelector('input[placeholder="Max Mustermann"]').value;
-      const firma = document.querySelector('input[placeholder="Mustermann GmbH"]').value;
-      const branche = document.querySelector('select').value;
-      const telefon = document.querySelector('input[type="tel"]').value;
-      const stadt = document.querySelector('input[placeholder="Berlin"]').value;
+    document.getElementById('formSubmit').addEventListener('click', function() {
+      const name = document.getElementById('f-name').value.trim();
+      const firma = document.getElementById('f-firma').value.trim();
+      const branche = document.getElementById('f-branche').value;
+      const telefon = document.getElementById('f-telefon').value.trim();
+      const stadt = document.getElementById('f-stadt').value.trim();
 
       if (!name || !firma || !branche || !telefon || !stadt) {
         alert('Bitte füllen Sie alle Pflichtfelder aus.');
@@ -1559,15 +1578,80 @@ h1 { font-weight: 800 !important; }
       }
 
       const msg = `Hallo! Ich interessiere mich für eine Website.%0A%0AName: ${encodeURIComponent(name)}%0AFirma: ${encodeURIComponent(firma)}%0ABranche: ${encodeURIComponent(branche)}%0ATelefon: ${encodeURIComponent(telefon)}%0AStadt: ${encodeURIComponent(stadt)}`;
-      window.open(`https://wa.me/491629686624?text=${msg}`, '_blank');
+      window.open(`https://wa.me/491629686624?text=${msg}`, '_blank', 'noopener,noreferrer');
+    });
+
+    // Mobile menu (burger is in DOM already)
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const burger = document.getElementById('burger');
+      const isOpen = menu.classList.toggle('open');
+      burger.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+    document.getElementById('burger').addEventListener('click', toggleMenu);
+
+    // All other listeners require full DOM
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu links close menu
+      document.querySelectorAll('#mobileMenu a').forEach(a => {
+        a.addEventListener('click', () => {
+          document.getElementById('mobileMenu').classList.remove('open');
+          document.getElementById('burger').classList.remove('open');
+          document.getElementById('burger').setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Cookie banner
+      function initCookies() {
+        if (!document.cookie.includes('pe_consent=')) {
+          document.getElementById('cookieBanner').style.display = 'flex';
+        }
+      }
+      document.getElementById('btnAccept').addEventListener('click', function() {
+        document.cookie = 'pe_consent=accepted; max-age=31536000; path=/; SameSite=Lax; Secure';
+        document.getElementById('cookieBanner').style.display = 'none';
+      });
+      document.getElementById('btnDecline').addEventListener('click', function() {
+        document.cookie = 'pe_consent=declined; max-age=31536000; path=/; SameSite=Lax; Secure';
+        document.getElementById('cookieBanner').style.display = 'none';
+      });
+
+      // Impressum / Datenschutz
+      document.querySelectorAll('a[href="#impressum"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('impressum').style.display = 'block';
+          document.getElementById('datenschutz').style.display = 'none';
+          document.getElementById('impressum').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+      document.querySelectorAll('a[href="#datenschutz"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('datenschutz').style.display = 'block';
+          document.getElementById('impressum').style.display = 'none';
+          document.getElementById('datenschutz').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+      document.getElementById('btnImpressumZurueck').addEventListener('click', function() {
+        document.getElementById('impressum').style.display = 'none';
+        window.scrollTo(0, 0);
+      });
+      document.getElementById('btnDatenschutzZurueck').addEventListener('click', function() {
+        document.getElementById('datenschutz').style.display = 'none';
+        window.scrollTo(0, 0);
+      });
+
+      initCookies();
     });
   </script>
 
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(18,18,31,0.97);backdrop-filter:blur(20px);border-top:1px solid rgba(201,168,76,0.2);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+<div id="cookieBanner" role="dialog" aria-label="Cookie-Einstellungen" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(18,18,31,0.97);backdrop-filter:blur(20px);border-top:1px solid rgba(201,168,76,0.2);padding:1.2rem 2rem;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
   <p style="font-size:0.85rem;color:#a0a0b8;margin:0;flex:1;min-width:200px;">Diese Website verwendet Cookies. <a href="#datenschutz" style="color:var(--gold);">Datenschutz</a></p>
   <div style="display:flex;gap:0.8rem;flex-shrink:0;">
-    <button onclick="acceptCookies()" style="background:var(--gold);color:var(--dark);border:none;padding:0.6rem 1.4rem;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;">Akzeptieren</button>
-    <button onclick="declineCookies()" style="background:transparent;color:#a0a0b8;border:1px solid rgba(255,255,255,0.1);padding:0.6rem 1.4rem;border-radius:6px;font-size:0.85rem;cursor:pointer;">Ablehnen</button>
+    <button id="btnAccept" style="background:var(--gold);color:var(--dark);border:none;padding:0.6rem 1.4rem;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;">Akzeptieren</button>
+    <button id="btnDecline" style="background:transparent;color:#a0a0b8;border:1px solid rgba(255,255,255,0.1);padding:0.6rem 1.4rem;border-radius:6px;font-size:0.85rem;cursor:pointer;">Ablehnen</button>
   </div>
 </div>
 
@@ -1585,7 +1669,7 @@ h1 { font-weight: 800 !important; }
       <p>Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</p><br/>
       <p><strong style="color:var(--white);">Haftungsausschluss</strong></p>
       <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt.</p><br/>
-      <button onclick="document.getElementById('impressum').style.display='none';window.scrollTo(0,0);" style="background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;">← Zurück</button>
+      <button id="btnImpressumZurueck" style="background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;">← Zurück</button>
     </div>
   </div>
 </section>
@@ -1599,58 +1683,26 @@ h1 { font-weight: 800 !important; }
       <p><strong style="color:var(--white);">2. Erhobene Daten</strong></p>
       <p>Name, Firmenname, Telefon, Stadt – ausschließlich zur Bearbeitung Ihrer Anfrage.</p><br/>
       <p><strong style="color:var(--white);">3. Hosting</strong></p>
-      <p>Vercel Inc., 340 Pine Street, Suite 401, San Francisco, CA 94104, USA. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p><br/>
-      <p><strong style="color:var(--white);">4. WhatsApp</strong></p>
-      <p>Bei Klick auf WhatsApp-Links wird Ihre IP-Adresse an Meta Platforms Ireland Ltd. übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</p><br/>
-      <p><strong style="color:var(--white);">5. Kontaktformular</strong></p>
-      <p>Formulardaten werden über WhatsApp weitergeleitet und nicht dauerhaft gespeichert.</p><br/>
-      <p><strong style="color:var(--white);">3. Weitergabe</strong></p>
-      <p>Keine Weitergabe an Dritte. Übertragung via SSL/TLS verschlüsselt.</p><br/>
-      <p><strong style="color:var(--white);">4. Cookies</strong></p>
-      <p>Technisch notwendige Cookies. Widerspruch jederzeit möglich.</p><br/>
-      <p><strong style="color:var(--white);">5. Ihre Rechte</strong></p>
-      <p>Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Widerspruch (Art. 21): hallo@pe-lix.de</p><br/>
-      <p><strong style="color:var(--white);">6. Hosting</strong></p>
-      
-      <button onclick="document.getElementById('datenschutz').style.display='none';window.scrollTo(0,0);" style="background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;">← Zurück</button>
+      <p>Diese Website wird gehostet bei Vercel Inc., 340 Pine Street, Suite 401, San Francisco, CA 94104, USA. Beim Aufruf werden automatisch Server-Logs inkl. IP-Adresse erfasst und für ca. 7 Tage gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Mit Vercel besteht ein Auftragsverarbeitungsvertrag (AVV gemäß Art. 28 DSGVO).</p><br/>
+      <p><strong style="color:var(--white);">4. Vercel Analytics</strong></p>
+      <p>Diese Website nutzt Vercel Analytics zur anonymisierten Messung von Seitenaufrufen. Es werden keine Cookies gesetzt und keine personenbezogenen Daten dauerhaft gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p><br/>
+      <p><strong style="color:var(--white);">5. WhatsApp</strong></p>
+      <p>Bei Klick auf WhatsApp-Links wird Ihre IP-Adresse an Meta Platforms Ireland Ltd. übertragen. Dies erfolgt erst nach bewusstem Anklicken. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</p><br/>
+      <p><strong style="color:var(--white);">6. Kontaktformular</strong></p>
+      <p>Formulardaten (Name, Firma, Branche, Telefon, Stadt) werden ausschließlich zur Bearbeitung Ihrer Anfrage genutzt und über WhatsApp weitergeleitet. Es findet keine dauerhafte serverseitige Speicherung statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p><br/>
+      <p><strong style="color:var(--white);">7. Datenweitergabe</strong></p>
+      <p>Keine Weitergabe an Dritte außer den genannten Auftragsverarbeitern. Übertragung via SSL/TLS verschlüsselt.</p><br/>
+      <p><strong style="color:var(--white);">8. Cookies</strong></p>
+      <p>Diese Website verwendet ausschließlich technisch notwendige Cookies (Speicherung Ihrer Cookie-Einstellungen). Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p><br/>
+      <p><strong style="color:var(--white);">9. Ihre Rechte</strong></p>
+      <p>Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21 DSGVO). Kontakt: hallo@pe-lix.de. Beschwerderecht bei der zuständigen Datenschutzbehörde.</p><br/>
+      <button id="btnDatenschutzZurueck" style="background:var(--gold);color:var(--dark);border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;">← Zurück</button>
     </div>
   </div>
 </section>
 
 
 
-<script>
-function initCookies() {
-  if (!document.cookie.includes('pe_consent=')) {
-    document.getElementById('cookieBanner').style.display = 'flex';
-  }
-}
-function acceptCookies() {
-  document.cookie = 'pe_consent=accepted; max-age=31536000; path=/; SameSite=Lax';
-  document.getElementById('cookieBanner').style.display = 'none';
-}
-function declineCookies() {
-  document.cookie = 'pe_consent=declined; max-age=31536000; path=/; SameSite=Lax';
-  document.getElementById('cookieBanner').style.display = 'none';
-}
-document.querySelectorAll('a[href="#impressum"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('impressum').style.display = 'block';
-    document.getElementById('datenschutz').style.display = 'none';
-    document.getElementById('impressum').scrollIntoView({behavior:'smooth'});
-  });
-});
-document.querySelectorAll('a[href="#datenschutz"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('datenschutz').style.display = 'block';
-    document.getElementById('impressum').style.display = 'none';
-    document.getElementById('datenschutz').scrollIntoView({behavior:'smooth'});
-  });
-});
-window.addEventListener('load', initCookies);
-</script>
 
 </body>
 </html>
@@ -1658,22 +1710,3 @@ window.addEventListener('load', initCookies);
 
 
 
-
-
-
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#" onclick="toggleMenu()">Start</a>
-  <a href="#demo" onclick="toggleMenu()">Beispiel</a>
-  <a href="#loesung" onclick="toggleMenu()">Leistungen</a>
-  <a href="#kontakt" onclick="toggleMenu()">Kostenlose Vorschau →</a>
-</div>
-
-<script>
-function toggleMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const burger = document.getElementById('burger');
-  menu.classList.toggle('open');
-  burger.classList.toggle('open');
-}
-</script>
