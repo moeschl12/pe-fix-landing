@@ -1509,6 +1509,12 @@ h1 { font-weight: 800 !important; }
             <label for="f-nachricht">Nachricht (optional)</label>
             <textarea id="f-nachricht" placeholder="Was ist Ihnen bei der Website besonders wichtig?"></textarea>
           </div>
+          <div class="form-group" style="display:flex;align-items:flex-start;gap:0.6rem;margin-top:0.5rem;">
+            <input type="checkbox" id="f-dsgvo" style="margin-top:3px;flex-shrink:0;width:16px;height:16px;cursor:pointer;" />
+            <label for="f-dsgvo" style="font-size:0.82rem;color:var(--text-muted);cursor:pointer;line-height:1.4;">
+              Ich stimme der <a href="#datenschutz" style="color:var(--gold);">Datenschutzerklärung</a> zu und bin einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden. *
+            </label>
+          </div>
           <button class="form-submit" id="formSubmit">Kostenlose Vorschau anfragen →</button>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem;text-align:center;">
             Keine Verpflichtung · 100% kostenlos · Antwort in 24h
@@ -1565,20 +1571,55 @@ h1 { font-weight: 800 !important; }
     reveals.forEach(el => observer.observe(el));
 
     // Form submit
-    document.getElementById('formSubmit').addEventListener('click', function() {
+    document.getElementById('formSubmit').addEventListener('click', async function() {
+      const btn = document.getElementById('formSubmit');
       const name = document.getElementById('f-name').value.trim();
       const firma = document.getElementById('f-firma').value.trim();
       const branche = document.getElementById('f-branche').value;
       const telefon = document.getElementById('f-telefon').value.trim();
       const stadt = document.getElementById('f-stadt').value.trim();
+      const nachricht = document.getElementById('f-nachricht').value.trim();
+      const dsgvo = document.getElementById('f-dsgvo').checked;
 
       if (!name || !firma || !branche || !telefon || !stadt) {
         alert('Bitte füllen Sie alle Pflichtfelder aus.');
         return;
       }
+      if (!dsgvo) {
+        alert('Bitte stimmen Sie der Datenschutzerklärung zu.');
+        return;
+      }
 
-      const msg = `Hallo! Ich interessiere mich für eine Website.%0A%0AName: ${encodeURIComponent(name)}%0AFirma: ${encodeURIComponent(firma)}%0ABranche: ${encodeURIComponent(branche)}%0ATelefon: ${encodeURIComponent(telefon)}%0AStadt: ${encodeURIComponent(stadt)}`;
-      window.open(`https://wa.me/491629686624?text=${msg}`, '_blank', 'noopener,noreferrer');
+      btn.disabled = true;
+      btn.textContent = 'Wird gesendet...';
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, firma, branche, telefon, stadt, nachricht, dsgvo }),
+        });
+
+        if (res.ok) {
+          btn.textContent = '✓ Anfrage gesendet!';
+          btn.style.background = '#25a244';
+          document.getElementById('f-name').value = '';
+          document.getElementById('f-firma').value = '';
+          document.getElementById('f-branche').value = '';
+          document.getElementById('f-telefon').value = '';
+          document.getElementById('f-stadt').value = '';
+          document.getElementById('f-nachricht').value = '';
+          document.getElementById('f-dsgvo').checked = false;
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Kostenlose Vorschau anfragen →';
+          alert('Fehler beim Senden. Bitte versuchen Sie es erneut.');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Kostenlose Vorschau anfragen →';
+        alert('Fehler beim Senden. Bitte versuchen Sie es erneut.');
+      }
     });
 
     // Mobile menu (burger is in DOM already)
