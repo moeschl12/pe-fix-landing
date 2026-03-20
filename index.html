@@ -38,6 +38,29 @@
   
 <style>
 
+/* ── LOKALE FONTS (kein Google Fonts – Abmahnschutz) ── */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/dm-sans-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/dm-sans-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/dm-sans-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -86,7 +109,7 @@
     }
 
     .logo {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 800;
       font-size: 1.4rem;
       color: var(--white);
@@ -175,7 +198,7 @@
     }
 
     h1 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: clamp(2.8rem, 7vw, 5.5rem);
       font-weight: 800;
       line-height: 1.05;
@@ -303,7 +326,7 @@
     }
 
     h2 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
       letter-spacing: -0.03em;
@@ -349,7 +372,7 @@
     }
 
     .problem-item h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
@@ -409,7 +432,7 @@
     }
 
     .solution-card h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 0.6rem;
@@ -485,7 +508,7 @@
     }
 
     .mockup-logo {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 800;
       font-size: 1.1rem;
     }
@@ -654,7 +677,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 700;
       font-size: 0.85rem;
       color: var(--gold);
@@ -718,7 +741,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 700;
       color: var(--gold);
       flex-shrink: 0;
@@ -780,7 +803,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 800;
       font-size: 1.1rem;
       color: var(--gold);
@@ -788,7 +811,7 @@
     }
 
     .step h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 0.6rem;
@@ -885,7 +908,7 @@
     }
 
     .contact-info h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 1rem;
@@ -1473,7 +1496,7 @@ h1 { font-weight: 800 !important; }
       </div>
       <div class="contact-wrapper">
         <div class="contact-form reveal">
-          <h3 style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;">Vorschau anfragen</h3>
+          <h3 style="font-family:'DM Sans',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;">Vorschau anfragen</h3>
           <div class="form-group">
             <label for="f-name">Ihr Name *</label>
             <input id="f-name" type="text" placeholder="Max Mustermann" aria-required="true" />
