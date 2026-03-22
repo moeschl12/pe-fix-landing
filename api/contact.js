@@ -9,12 +9,46 @@ function sanitize(str) {
     .replace(/'/g, '&#x27;');
 }
 
+// In-memory rate limiter – 5 requests per IP per hour
+// Hinweis: In Vercel Serverless wird bei Cold Starts zurückgesetzt.
+// Dient als Schutz auf Long-Running-Instanzen und im Dev-Server.
+const rateLimitMap = new Map();
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 60 * 60 * 1000;
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT) return false;
+  entry.count++;
+  return true;
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, firma, branche, telefon, stadt, nachricht, dsgvo } = req.body || {};
+  // Rate limiting via IP
+  const ip =
+    (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
+    req.headers['x-real-ip'] ||
+    'unknown';
+
+  if (!checkRateLimit(ip)) {
+    return res.status(429).json({ error: 'Zu viele Anfragen. Bitte versuche es später erneut.' });
+  }
+
+  const { name, firma, branche, telefon, stadt, nachricht, dsgvo, website_url } = req.body || {};
+
+  // Honeypot: Bot-Schutz – Feld muss leer sein
+  if (website_url && String(website_url).trim() !== '') {
+    return res.status(200).json({ success: true });
+  }
 
   if (!name || !firma || !branche || !telefon || !stadt) {
     return res.status(400).json({ error: 'Pflichtfelder fehlen' });
@@ -33,7 +67,7 @@ module.exports = async (req, res) => {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: 'Kontaktformular pe-fix.de <onboarding@resend.dev>',
+      from: 'Kontaktformular pe-fix.de <noreply@pe-fix.de>',
       to: 'info@pe-fix.de',
       subject: `Neue Anfrage: ${n} – ${f}`,
       html: `
