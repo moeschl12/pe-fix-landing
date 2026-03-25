@@ -1538,6 +1538,7 @@ h1 { font-weight: 800 !important; }
               Ich stimme der <a href="#datenschutz" style="color:var(--gold);">Datenschutzerklärung</a> zu und bin einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden. *
             </label>
           </div>
+          <input type="text" name="website_url" id="website_url" style="display:none;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" />
           <button class="form-submit" id="formSubmit">Kostenlose Vorschau anfragen →</button>
           <p style="font-size:0.8rem;color:var(--text-muted);margin-top:1rem;text-align:center;">
             Keine Verpflichtung · 100% kostenlos · Antwort in 24h
@@ -1620,7 +1621,7 @@ h1 { font-weight: 800 !important; }
         const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, firma, branche, telefon, stadt, nachricht, dsgvo }),
+          body: JSON.stringify({ name, firma, branche, telefon, stadt, nachricht, dsgvo, submitted_at: Date.now(), website_url: document.getElementById('website_url').value }),
         });
 
         if (res.ok) {
